@@ -10,6 +10,8 @@ As the web scraping being put in place, we were able to showcase:
 - Latest articles news about the planet Mars.
 - A table containing a lot of information on Mars facts.
 - Full resolution images of Mars's hemisphere as well as their information.
+- Store all gathered data into a MongoDB.<br>
+![](Resources/Data_retrieve_in_MongoDB.PNG)
 
 Then using HTML code and Bootstrap components, we customized the appearance of the webpage, and also made it mobile responsive, like that it could be access on different kind of device (Desktop, tablet or phone).<br>
 
