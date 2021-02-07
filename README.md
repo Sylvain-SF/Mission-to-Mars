@@ -22,7 +22,6 @@ For example:<br>
 ![](Resources/Galaxy_5_view.PNG)<br>
 
 
-
 # Summary:
 
 At the click of a button in our web application, we could access the latest news, full resolution images and useful facts about the planet Mars.
