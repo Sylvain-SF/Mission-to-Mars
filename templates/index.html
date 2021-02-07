@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  user-scalable=yes" /><!-- Make the app mobile responsive -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Mission to Mars</title>
     <link
@@ -13,40 +13,64 @@
   <body>
     <div class="container">
       <!-- Add Jumbotron to Header -->
-      <div class="jumbotron text-center">
-        <h1>Mission to Mars</h1>
+      <div class="jumbotron text-center" style="background-image: url('https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2020/04/mars_landscape/21916769-2-eng-GB/Mars_landscape_pillars.jpg')
+      ;background-size:cover; background-position:center;height" <!-- Add a background image -->
+        <h1 style="color:black ; font-size:100px" >Mission to Mars</h1><!-- Change title color and size -->
         <!-- Add a button to activate scraping script -->
-        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        <p><a class="btn btn-success btn-lg" href="/scrape" role="button" style ="background-color: black ; text-align: center">Scrape New Data</a></p> <!-- Change background-button color -->
       </div>
+
       <!-- Add section for Mars News -->
       <div class="row" id="mars-news">
         <div class="col-md-12">
           <div class="media">
             <div class="media-body">
-              <h2>Latest Mars News</h2>
+              <h2 style="font-weight:bold; font-size:45px">Latest Mars News</h2><!-- Change title style -->
               <h4 class="media-heading">{{ mars.news_title }}</h4>
               <p>{{ mars.news_paragraph }}</p>
             </div>
           </div>
         </div>
       </div>
+
       <!-- Section for Featured Image and Facts table -->
       <div class="row" id="mars-featured-image">
         <div class="col-md-8">
-          <h2>Featured Mars Image</h2>
+          <h2 style="font-weight:bold; font-size:45px">Featured Mars Image</h2><!-- Change title style -->
+
+          <!-- if images is False/None/non-existent, then default to error message -->
           <img
-            src="{{mars.featured_image }}"
+            src="{{mars.featured_image | default('static/images/error.png', true) }}"
             class="img-responsive"
             alt="Responsive image"
           />
         </div>
+
         <div class="col-md-4">
           <!-- Mars Facts -->
-          <div class="row" id="mars-facts">
-            <h4>Mars Facts</h4>
+          <div class="row : table table-striped" id="mars-facts"><!-- Style the table with table-striped -->
+            <h4 style="color= black; font-size=45px">Mars Facts</h4>
             {{ mars.facts | safe }}
           </div>
         </div>
+      </div>
+
+      <!-- Section for Mars Hemispheres -->
+      <div class="row" id="mars-hemispheres">
+        <div class="page-header">
+          <h2 class="text-center"; style="font-weight:bold; font-size:45px">Mars Hemispheres</h2><!-- Change title style -->
+        </div>
+
+        {% for hemisphere in mars.hemisphere_data %}
+        <div class="col-md-3"> <!-- Display hemisphere images on the same row -->
+          <div class="thumbnail">
+            <img src="{{hemisphere.img_url | default('static/images/error.png', true)}}" class = "img-responsive" alt="Responsive image">
+            <div class="caption">
+              <h3>{{hemisphere.title}}</h3>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
       </div>
     </div>
   </body>
