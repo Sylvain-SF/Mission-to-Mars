@@ -15,17 +15,17 @@
       <!-- Add Jumbotron to Header -->
       <div class="jumbotron text-center" style="background-image: url('https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2020/04/mars_landscape/21916769-2-eng-GB/Mars_landscape_pillars.jpg')
       ;background-size:cover; background-position:center;height" <!-- Add a background image -->
-        <h1 style="color:black ; font-size:100px" >Mission to Mars</h1><!-- Change title color and size -->
+        <h1 style="color:black ; font-size:70px ; font-weight: bold ; font-family: Comic Sans MS" >Mission to Mars</h1><!-- Change title color and size -->
         <!-- Add a button to activate scraping script -->
         <p><a class="btn btn-success btn-lg" href="/scrape" role="button" style ="background-color: black ; text-align: center">Scrape New Data</a></p> <!-- Change background-button color -->
       </div>
 
       <!-- Add section for Mars News -->
       <div class="row" id="mars-news">
-        <div class="col-md-12">
+        <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12"><!-- Adjust size for large desktop, medium desktop, phone or tablets-->
           <div class="media">
             <div class="media-body">
-              <h2 style="font-weight:bold; font-size:45px">Latest Mars News</h2><!-- Change title style -->
+              <h2 style="font-weight:bold; font-size:45px ; font-family: Comic Sans MS">Latest Mars News</h2><!-- Change title style -->
               <h4 class="media-heading">{{ mars.news_title }}</h4>
               <p>{{ mars.news_paragraph }}</p>
             </div>
@@ -35,8 +35,8 @@
 
       <!-- Section for Featured Image and Facts table -->
       <div class="row" id="mars-featured-image">
-        <div class="col-md-8">
-          <h2 style="font-weight:bold; font-size:45px">Featured Mars Image</h2><!-- Change title style -->
+        <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12"><!-- Adjust size for large desktop, medium desktop, phone or tablet-->
+          <h2 style="font-weight:bold; font-size:45px ; font-family: Comic Sans MS">Featured Mars Image</h2><!-- Change title style -->
 
           <!-- if images is False/None/non-existent, then default to error message -->
           <img
@@ -46,9 +46,9 @@
           />
         </div>
 
-        <div class="col-md-4">
+        <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12"><!-- Adjust size for large desktop, medium desktop, phone or tablet-->
           <!-- Mars Facts -->
-          <div class="row : table table-striped" id="mars-facts"><!-- Style the table with table-striped -->
+          <div class="row : table table-striped : table table-bordered" id="mars-facts"><!-- Style the table with table-striped -->
             <h4 style="color= black; font-size=45px">Mars Facts</h4>
             {{ mars.facts | safe }}
           </div>
@@ -58,11 +58,11 @@
       <!-- Section for Mars Hemispheres -->
       <div class="row" id="mars-hemispheres">
         <div class="page-header">
-          <h2 class="text-center"; style="font-weight:bold; font-size:45px">Mars Hemispheres</h2><!-- Change title style -->
+          <h2 class="text-center"; style="font-weight:bold; font-size:45px ; font-family: Comic Sans MS">Mars Hemispheres</h2><!-- Change title style -->
         </div>
 
         {% for hemisphere in mars.hemisphere_data %}
-        <div class="col-md-3"> <!-- Display hemisphere images on the same row -->
+        <div class="col-md-3 col-xs-12"> <!-- Display hemisphere images on the same row for medium desktop and on all page for mobile-->
           <div class="thumbnail">
             <img src="{{hemisphere.img_url | default('static/images/error.png', true)}}" class = "img-responsive" alt="Responsive image">
             <div class="caption">
